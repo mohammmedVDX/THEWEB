@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Editor with Video.js</title>
+    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Online Video Editor</h1>
+    </header>
+    <main>
+        <section id="video-player">
+            <h2>Video Player</h2>
+            <video id="video-element" class="video-js vjs-default-skin" controls></video>
+            <div id="video-controls">
+                <button id="play-pause">Play/Pause</button>
+                <input type="range" id="seek-bar" value="0">
+                <button id="stop">Stop</button>
+                <button id="mute">Mute/Unmute</button>
+                <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+            </div>
+        </section>
+        <section id="video-editor">
+            <h2>Video Editor</h2>
+            <label for="video-upload">Upload Video:</label>
+            <input type="file" id="video-upload" accept="video/*">
+            <button id="trim-video">Trim Video</button>
+            <button id="cut-video">Cut Video</button>
+            <button id="change-speed">Change Speed</button>
+            <button id="save-video">Save Video</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Online Video Editor. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
