@@ -284,12 +284,20 @@
         }
         
         function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                video.requestFullscreen().catch(err => {
-                    alert(`خطأ أثناء محاولة الدخول إلى وضع الشاشة الكاملة: ${err.message} (${err.name})`);
-                });
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen().catch(err => {
+                        alert(`خطأ أثناء محاولة الدخول إلى وضع الشاشة الكاملة: ${err.message} (${err.name})`);
+                    });
+                } else if (video.webkitEnterFullscreen) { // For iPhone
+                    video.webkitEnterFullscreen();
+                }
             } else {
-                document.exitFullscreen();
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { // For iPhone
+                    document.webkitExitFullscreen();
+                }
             }
         }
         
